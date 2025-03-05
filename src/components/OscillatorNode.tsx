@@ -51,7 +51,7 @@ export function OscillatorNode({ id, data }: OscillatorNodeProps) {
           <option value='square'>方波</option>
         </select>
       </div>
-      <Handle type='source' position={Position.Bottom} />
+      <Handle type='source' className='w-[10px] h-[10px]' position={Position.Bottom} />
     </div>
   );
 }

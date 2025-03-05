@@ -7,7 +7,7 @@ export function OutputNode() {
 
   return (
     <div className={'bg-white shadow-xl p-[20px]'}>
-      <Handle type='target' position={Position.Top} />
+      <Handle type='target' className='w-[10px] h-[10px]' position={Position.Top} />
 
       <div>
         <p>输出节点</p>

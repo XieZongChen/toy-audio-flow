@@ -19,7 +19,7 @@ export function VolumeNode({ id, data }: VolumeNodeProps) {
 
   return (
     <div className={'rounded-md bg-white shadow-xl'}>
-      <Handle type='target' position={Position.Top} />
+      <Handle type='target' className='w-[10px] h-[10px]' position={Position.Top} />
 
       <p className={'rounded-t-md p-[4px] bg-blue-500 text-white'}>音量节点</p>
       <div className={'flex flex-col p-[4px]'}>
