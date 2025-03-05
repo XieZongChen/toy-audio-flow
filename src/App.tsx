@@ -1,12 +1,15 @@
 import {
-  Node,
-  Edge,
   addEdge,
   Background,
   BackgroundVariant,
   Connection,
   Controls,
+  Edge,
+  EdgeTypes,
   MiniMap,
+  Node,
+  OnConnect,
+  Panel,
   ReactFlow,
   useEdgesState,
   useNodesState,
@@ -15,7 +18,7 @@ import '@xyflow/react/dist/style.css';
 import { OscillatorNode } from './components/OscillatorNode';
 import { VolumeNode } from './components/VolumeNode';
 import { OutputNode } from './components/OutputNode';
-import { connect } from './audio';
+import { connect, createAudioNode } from './audio';
 
 const initialNodes: Node[] = [
   {
@@ -55,6 +58,26 @@ export default function App() {
     setEdges((eds) => addEdge(params, eds));
   };
 
+  function addOscNode() {
+    const id = Math.random().toString().slice(2, 8);
+    const position = { x: 0, y: 0 };
+    const type = 'osc';
+    const data = { frequency: 400, type: 'sine' };
+
+    setNodes([...nodes, { id, type, data, position }]);
+    createAudioNode(id, type, data);
+  }
+
+  function addVolumeNode() {
+    const id = Math.random().toString().slice(2, 8);
+    const data = { gain: 0.5 };
+    const position = { x: 0, y: 0 };
+    const type = 'volume';
+
+    setNodes([...nodes, { id, type, data, position }]);
+    createAudioNode(id, type, data);
+  }
+
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
       <ReactFlow
@@ -69,6 +92,20 @@ export default function App() {
         <Controls />
         <MiniMap />
         <Background variant={BackgroundVariant.Lines} />
+        <Panel className={'space-x-4'} position='top-right'>
+          <button
+            className={'p-[4px] rounded bg-white shadow'}
+            onClick={addOscNode}
+          >
+            添加振荡器节点
+          </button>
+          <button
+            className={'p-[4px] rounded bg-white shadow'}
+            onClick={addVolumeNode}
+          >
+            添加音量节点
+          </button>
+        </Panel>
       </ReactFlow>
     </div>
   );
