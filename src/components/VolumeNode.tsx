@@ -25,6 +25,7 @@ export function VolumeNode({ id, data }: VolumeNodeProps) {
       <div className={'flex flex-col p-[4px]'}>
         <p>Gain</p>
         <input
+          // 注意这里需要加 nodrag className，防止拖动时变成拖动节点
           className='nodrag'
           type='range'
           min='0'
