@@ -1,17 +1,17 @@
 // 创建一个 AudioContext
 const context = new AudioContext();
 
-// Oscillator 节点
+// 振荡器节点
 const osc = context.createOscillator();
 osc.frequency.value = 220;
 osc.type = 'square';
 osc.start();
 
-// Gain 节点
+// 音量节点
 const volume = context.createGain();
 volume.gain.value = 0.5;
 
-// destination 节点
+// 输出节点
 const out = context.destination;
 
 // 用 Map 保存 id -> 节点 的字典
@@ -65,7 +65,7 @@ export function removeAudioNode(id: string) {
 
     // 删除前先断掉当前节点所有连接
     node.disconnect();
-    // 停止节点振荡器
+    // 停止节点
     node.stop?.();
     // 从 Map 中删除记录
     nodes.delete(id);
@@ -95,7 +95,7 @@ export function disconnect(sourceId: string, targetId: string) {
 }
 
 /**
- * 创建振荡器
+ * 创建振荡器节点或音量节点
  * @param id 振荡器 id
  * @param type 类型
  * @param data 初始化数据
