@@ -12,6 +12,7 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { OscillatorNode } from './components/OscillatorNode';
+import { VolumeNode } from './components/VolumeNode';
 
 const initialNodes = [
   {
@@ -20,12 +21,13 @@ const initialNodes = [
     data: { frequency: 300, type: 'square' },
     type: 'osc',
   },
-  { id: '2', position: { x: 0, y: 300 }, data: { label: '2' } },
+  { id: '2', position: { x: 0, y: 300 }, data: { gain: 0.6 }, type: 'volume' },
 ];
 const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
 
 const nodeTypes = {
   osc: OscillatorNode,
+  volume: VolumeNode,
 };
 
 export default function App() {
