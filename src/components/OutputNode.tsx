@@ -1,6 +1,6 @@
 import { Handle, Position } from '@xyflow/react';
 import { useState } from 'react';
-import { toggleAudio } from '../audio';
+import { toggleAudio } from '../Audio';
 
 export function OutputNode() {
   const [isRunning, setIsRunning] = useState(false);

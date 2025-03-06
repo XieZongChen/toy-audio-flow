@@ -1,6 +1,6 @@
-import { Handle, Position, useReactFlow } from '@xyflow/react';
-import { ChangeEvent, ChangeEventHandler, useState } from 'react';
-import { updateAudioNode } from '../audio';
+import { Handle, Position } from '@xyflow/react';
+import { ChangeEventHandler, useState } from 'react';
+import { updateAudioNode } from '../Audio';
 
 export interface OscillatorNodeProps {
   id: string;
@@ -51,7 +51,11 @@ export function OscillatorNode({ id, data }: OscillatorNodeProps) {
           <option value='square'>方波</option>
         </select>
       </div>
-      <Handle type='source' className='w-[10px] h-[10px]' position={Position.Bottom} />
+      <Handle
+        type='source'
+        className='w-[10px] h-[10px]'
+        position={Position.Bottom}
+      />
     </div>
   );
 }

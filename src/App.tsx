@@ -5,10 +5,8 @@ import {
   Connection,
   Controls,
   Edge,
-  EdgeTypes,
   MiniMap,
   Node,
-  OnConnect,
   Panel,
   ReactFlow,
   useEdgesState,
@@ -18,7 +16,7 @@ import '@xyflow/react/dist/style.css';
 import { OscillatorNode } from './components/OscillatorNode';
 import { VolumeNode } from './components/VolumeNode';
 import { OutputNode } from './components/OutputNode';
-import { connect, createAudioNode, disconnect, removeAudioNode } from './audio';
+import { connect, createAudioNode, disconnect, removeAudioNode } from './Audio';
 
 const initialNodes: Node[] = [
   {

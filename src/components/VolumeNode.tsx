@@ -1,6 +1,6 @@
 import { Handle, Position } from '@xyflow/react';
-import { ChangeEvent, ChangeEventHandler, useState } from 'react';
-import { updateAudioNode } from '../audio';
+import { ChangeEventHandler, useState } from 'react';
+import { updateAudioNode } from '../Audio';
 
 export interface VolumeNodeProps {
   id: string;
